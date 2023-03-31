@@ -98,6 +98,8 @@ async function crawl(url, SEARCH_QUERY) {
 async function startCrawling(query, page) {
 	let url = `https://www.amazon.com/s?k=${encodeURI(query)}&page=${page}`;
 	let data = await crawl(url, query);
-
+	while (data.data.length < 1) {
+		data = await crawl(url, query);
+	}
 	return data;
 }
