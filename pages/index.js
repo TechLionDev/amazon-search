@@ -38,6 +38,7 @@ function scrollToTop() {
 		setLoading(true);
 		let fres = await fetch(`/api/amazon?query=${query}&page=${page}`);
 		let results = await fres.json();
+		scrollToTop();
 		setData(results.data);
 		setNumOfPages(results.numOfPages);
 		console.log(results);
