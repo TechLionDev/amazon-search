@@ -35,6 +35,9 @@ async function crawl(url, SEARCH_QUERY) {
 	if(!SEARCH_QUERY) {
 		return;
 	}
+	if(!SEARCH_QUERY.trim()) {
+		return;
+	}
 	console.log(
 		`New Search with Query: ${SEARCH_QUERY}; Page ${url.substring(
 			url.indexOf('page=') + 5,
@@ -95,7 +98,7 @@ async function crawl(url, SEARCH_QUERY) {
 	let numOfPages = Number(
 		$('span.s-pagination-item.s-pagination-disabled').last().text(),
 	);
-	while (data.length < 1) {
+	if (data.length < 1) {
 		data = await crawl(url, SEARCH_QUERY);
 	}
 	return { data, numOfPages };
