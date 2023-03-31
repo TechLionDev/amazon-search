@@ -92,14 +92,14 @@ async function crawl(url, SEARCH_QUERY) {
 	let numOfPages = Number(
 		$('span.s-pagination-item.s-pagination-disabled').last().text(),
 	);
+	while (data.length < 1) {
+		data = await crawl(url, SEARCH_QUERY);
+	}
 	return { data, numOfPages };
 }
 
 async function startCrawling(query, page) {
 	let url = `https://www.amazon.com/s?k=${encodeURI(query)}&page=${page}`;
 	let data = await crawl(url, query);
-	while (data.data.length < 1) {
-		data = await crawl(url, query);
-	}
 	return data;
 }
