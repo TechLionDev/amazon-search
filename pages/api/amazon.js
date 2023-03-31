@@ -1,4 +1,5 @@
 const axios = require('axios');
+import randUserAgent from "rand-user-agent";
 const cheerio = require('cheerio');
 
 export default async function handler(req, res) {
@@ -9,7 +10,7 @@ export default async function handler(req, res) {
 }
 
 
-let USER_AGENT = 'Mozilla/5.0 (Windows; Windows NT 10.1; WOW64; en-US) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/50.0.2785.256 Safari/603' // get random user-agent from https://iplogger.org/useragents/?device=random&count=10
+let USER_AGENT = randUserAgent("desktop"); // get random user-agent from https://iplogger.org/useragents/?device=random&count=10
 
 const ACCEPT_LANGUAGE = 'en-US,en;q=0.9';
 const ACCEPT_ENCODING = 'gzip, deflate, br';
