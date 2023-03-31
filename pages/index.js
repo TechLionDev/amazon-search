@@ -1,19 +1,79 @@
 import ItemCard from '@/components/ItemCard';
-import { useState } from 'react';
-import { startCrawling } from './api/amazon';
+import Swal from 'sweetalert2';
+import { useEffect, useState } from 'react';
+import Pagination from '@/components/Pagination';
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [page, setPage] = useState(1);
+	const [query, setQuery] = useState('');
+	const [numOfPages, setNumOfPages] = useState(0);
+	const [pageSwitch, setPageSwitch] = useState(false);
+
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+	useEffect(() => {
+		async function fetchData() {
+			if (loading) {
+				Swal.fire(
+					'Slow Down!',
+					'Please Wait For The Current Results To Load',
+					'warning',
+				);
+				return;
+			}
+			if (pageSwitch) {
+				Swal.fire(
+					'Slow Down!',
+					'Please Wait For The Current Results To Load',
+					'warning',
+				);
+				return;
+			}
+			setPageSwitch(true);
+			setLoading(true);
+			let fres = await fetch(`/api/amazon?query=${query}&page=${page}`);
+			let results = await fres.json();
+			setData(results.data);
+			setNumOfPages(results.numOfPages);
+			setLoading(false);
+			setPageSwitch(false);
+    }
+    fetchData();
+    scrollToTop();
+	}, [page]);
+
 	async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-    const query = e.target.query.value;
-    let results = await startCrawling(query);
-    setData(results);
-    console.log(results);
-    e.target.query.value = '';
-    setLoading(false);
+		e.preventDefault();
+		if (loading) {
+			Swal.fire(
+				'Slow Down!',
+				'Please Wait For The Current Results To Load',
+				'warning',
+			);
+			return;
+		}
+		if (pageSwitch) {
+			Swal.fire(
+				'Slow Down!',
+				'Please Wait For The Current Results To Load',
+				'warning',
+			);
+			return;
+		}
+		setLoading(true);
+		let fres = await fetch(`/api/amazon?query=${query}&page=${page}`);
+		let results = await fres.json();
+		setData(results.data);
+		setNumOfPages(results.numOfPages);
+		console.log(results);
+		setLoading(false);
 	}
 	return (
 		<>
@@ -24,6 +84,8 @@ const Home = () => {
 						onSubmit={handleSubmit}
 						className='flex items-center justify-center bg-gray-50 shadow-lg rounded-lg p-1 md:mx-24 mx-6'>
 						<input
+							onChange={(e) => setQuery(e.target.value)}
+							value={query}
 							type='text'
 							required
 							id='query'
@@ -61,6 +123,9 @@ const Home = () => {
 							);
 						})}
 					</div>
+				</div>
+				<div className='m-2 p-4'>
+					<Pagination page={page} setPage={setPage} numOfPages={numOfPages} />
 				</div>
 			</div>
 		</>
