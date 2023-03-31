@@ -1,20 +1,19 @@
 import { useState } from 'react';
 
 export default function Pagination({ page, setPage, numOfPages }) {
+	const [currentPage, setCurrentPage] = useState(1);
+	const pageElms = [];
 	if (numOfPages === 0) {
 		return;
 	}
-	const [currentPage, setCurrentPage] = useState(1);
-	const pageElms = [];
-
 	for (let i = 1; i <= numOfPages; i++) {
 		pageElms.push(
 			<li key={i}>
 				<a
-                    onClick={() => {
-                        setPage(i);
-                        setCurrentPage(i);
-                    }}
+					onClick={() => {
+						setPage(i);
+						setCurrentPage(i);
+					}}
 					aria-current={currentPage == i ? 'page' : false}
 					className={`px-3 py-2 rounded-lg duration-150 hover:text-white hover:bg-indigo-600 ${
 						currentPage == i ? 'bg-indigo-600 text-white font-medium' : ''
