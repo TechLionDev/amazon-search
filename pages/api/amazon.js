@@ -51,7 +51,7 @@ async function crawl(url, SEARCH_QUERY) {
 		.then((res) => res.data);
 	const $ = cheerio.load(html);
 	const items = $('#search .s-result-item');
-	const data = [];
+	let data = [];
 
 	// Extracting the domain from the URL
 	const { protocol, host } = new URL(url);
