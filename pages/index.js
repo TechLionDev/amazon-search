@@ -20,22 +20,6 @@ function scrollToTop() {
 
 	useEffect(() => {
 		async function fetchData() {
-			if (loading) {
-				Swal.fire(
-					'Slow Down!',
-					'Please Wait For The Current Results To Load',
-					'warning',
-				);
-				return;
-			}
-			if (pageSwitch) {
-				Swal.fire(
-					'Slow Down!',
-					'Please Wait For The Current Results To Load',
-					'warning',
-				);
-				return;
-			}
 			setPageSwitch(true);
 			setLoading(true);
 			let fres = await fetch(`/api/amazon?query=${query}&page=${page}`);
@@ -51,22 +35,6 @@ function scrollToTop() {
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		if (loading) {
-			Swal.fire(
-				'Slow Down!',
-				'Please Wait For The Current Results To Load',
-				'warning',
-			);
-			return;
-		}
-		if (pageSwitch) {
-			Swal.fire(
-				'Slow Down!',
-				'Please Wait For The Current Results To Load',
-				'warning',
-			);
-			return;
-		}
 		setLoading(true);
 		let fres = await fetch(`/api/amazon?query=${query}&page=${page}`);
 		let results = await fres.json();
