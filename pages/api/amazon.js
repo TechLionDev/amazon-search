@@ -32,6 +32,9 @@ const ACCEPT_ENCODING = 'gzip, deflate, br';
 const REFERER = 'https://www.amazon.com/';
 
 async function crawl(url, SEARCH_QUERY) {
+	if(!SEARCH_QUERY) {
+		return;
+	}
 	console.log(
 		`New Search with Query: ${SEARCH_QUERY}; Page ${url.substring(
 			url.indexOf('page=') + 5,
