@@ -1,6 +1,10 @@
 import Image from 'next/image';
 
 const ItemCard = ({ item }) => {
+	if (item.sponsored) {
+		return;
+	}
+
 	let priceWhole = item.price.toString().split('.')[0];
 	let priceDecimal = item.price.toString().split('.')[1];
 	return (
@@ -19,11 +23,6 @@ const ItemCard = ({ item }) => {
 					</a>
 				</div>
 				<div className='px-5 pb-5'>
-					{item.sponsored ? (
-						<p className='text-right text-gray-600'>Sponsored</p>
-					) : (
-						''
-					)}
 					<a href={item.url} target='_blank' rel='noopener noreferrer'>
 						<h5 className='text-xl font-semibold tracking-tight text-gray-900 line-clamp-3 mx-auto break-word max-w-[300px]'>
 							{item.name}
@@ -34,7 +33,10 @@ const ItemCard = ({ item }) => {
 							${priceWhole}
 							{priceDecimal ? (
 								<span className='text-xl font-semibold text-gray-900'>
-									.{priceDecimal.length === 1 ? priceDecimal + '0' : priceDecimal}
+									.
+									{priceDecimal.length === 1
+										? priceDecimal + '0'
+										: priceDecimal}
 								</span>
 							) : (
 								''
