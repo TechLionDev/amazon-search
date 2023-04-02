@@ -1,4 +1,5 @@
 const Review = ({ title, rating, body, date }) => {
+	if (!rating) return;
 	return (
 		<>
 			<div className='w-full overflow-hidden bg-white rounded-lg shadow-md'>

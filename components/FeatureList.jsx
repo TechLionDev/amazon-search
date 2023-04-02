@@ -1,24 +1,33 @@
 import React from 'react';
 
 const FeatureList = ({ features }) => (
-  <div className="flex flex-col p-4 m-2 space-y-2">
-    {features.map((feature) => (
-      <div key={feature} className="flex items-start space-x-2">
-        <svg
-          className="w-8 h-8 mt-1 text-green-500"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fillRule="evenodd"
-            d="M19.707 4.293a1 1 0 00-1.414 0L7 15.586l-4.293-4.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0l13-13a1 1 0 000-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-        <span className="text-gray-700">{feature}</span>
-      </div>
-    ))}
-  </div>
+	<ul className='px-6 list-none list-inside'>
+		{features.map((feature, index) => (
+			<>
+				<div className='flex items-center gap-8'>
+					<div className='text-green-600'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='feather feather-check-circle'>
+							<path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'></path>
+							<polyline points='22 4 12 14.01 9 11.01'></polyline>
+						</svg>
+					</div>
+					<li key={index} className='py-2 mb-2'>
+						{feature}
+					</li>
+				</div>
+			</>
+		))}
+	</ul>
 );
 
 export default FeatureList;

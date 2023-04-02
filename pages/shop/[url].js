@@ -61,7 +61,7 @@ const ProductPage = ({ data }) => {
 								</svg>
 							</button>
 							{isOpen && (
-								<div className='overflow-y-scroll max-h-[400px]'>
+								<div className='overflow-y-auto max-h-[400px]'>
 									<FeatureList features={ProductFeatures} />
 								</div>
 							)}
