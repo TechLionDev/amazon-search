@@ -87,12 +87,8 @@ async function crawl(url) {
 }
 
 async function startCrawling(pUrl) {
-	let url;
-	if (pUrl[1]) {
-		url = `https://www.amazon.com/${pUrl[1]}`;
-	} else {
-		url = `https://www.amazon.com/${pUrl}`;
-	}
+	let url = `${decodeURIComponent(pUrl)}`;
+	
 	let data = await crawl(url);
 	return data;
 }
