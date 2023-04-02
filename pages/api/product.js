@@ -74,6 +74,8 @@ async function crawl(url) {
 		});
 	});
 
+	let features = $('#feature-bullets ul li').map((i, el) => $(el).text()).get()
+	features.shift();
 	data = {
 		name,
 		price,
@@ -81,6 +83,7 @@ async function crawl(url) {
 		rating,
 		url,
 		reviews,
+		features,
 	};
 
 	return data;

@@ -1,4 +1,6 @@
+import FeatureList from '@/components/FeatureList';
 import Review from '@/components/Review';
+import { useState } from 'react';
 
 const ProductPage = ({ data }) => {
 	console.log(data);
@@ -8,14 +10,18 @@ const ProductPage = ({ data }) => {
 	let ProductRating = data.rating;
 	let ProductUrl = data.url;
 	let ProductReviews = data.reviews;
+	let ProductFeatures = data.features;
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<>
 			<div className='flex flex-col items-center justify-center gap-4 p-8'>
-				<div className='flex flex-col md:flex-row'>
+				<div className='flex flex-col items-center md:flex-row'>
 					<div className='md:w-1/2'>
 						<img
-							className='object-contain w-full h-64 md:h-full max-h-[400px]'
+							className={
+								'object-contain w-full h-64 md:h-full max-h-[500px]'
+							}
 							src={PrimaryImage}
 							alt={ProductName}
 						/>
@@ -34,6 +40,33 @@ const ProductPage = ({ data }) => {
 							</svg>
 							<span className='mr-2 text-yellow-500'>{ProductRating}</span>
 						</div>
+						<div className='flex flex-col gap-4 p-4 mb-4 bg-white rounded-md shadow'>
+							<button
+								className='flex items-center justify-between w-full px-4 py-2 font-bold text-left text-md '
+								onClick={() => setIsOpen(!isOpen)}>
+								Features
+								<svg
+									className={`w-4 h-4 transition-transform ${
+										isOpen ? 'transform rotate-180' : ''
+									}`}
+									xmlns='http://www.w3.org/2000/svg'
+									viewBox='0 0 20 20'
+									fill='currentColor'
+									aria-hidden='true'>
+									<path
+										fillRule='evenodd'
+										d='M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z'
+										clipRule='evenodd'
+									/>
+								</svg>
+							</button>
+							{isOpen && (
+								<div className='overflow-y-scroll max-h-[400px]'>
+									<FeatureList features={ProductFeatures} />
+								</div>
+							)}
+						</div>
+
 						<a
 							className='px-4 py-2 font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700'
 							href={ProductUrl}
