@@ -23,7 +23,7 @@ const ProductPage = ({ data }) => {
 					<div className='flex flex-col justify-center p-6 md:w-1/2'>
 						<h1 className='mb-2 text-2xl font-bold'>{ProductName}</h1>
 						<p className='text-xl font-semibold text-gray-800'>
-							${ProductPrice}.
+							${ProductPrice}
 						</p>
 						<div className='flex items-center mt-2 mb-4'>
 							<svg
