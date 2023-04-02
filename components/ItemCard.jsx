@@ -5,8 +5,8 @@ const ItemCard = ({ item }) => {
 	let priceDecimal = item.price.toString().split('.')[1];
 	return (
 		<>
-			<div className='w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center h-full justify-between'>
-				<div className='items-center flex h-full'>
+			<div className='flex flex-col items-center justify-between w-full h-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+				<div className='flex items-center h-full'>
 					<a href={item.url} target='_blank' rel='noopener noreferrer'>
 						<Image
 							width={218}
@@ -20,7 +20,7 @@ const ItemCard = ({ item }) => {
 				</div>
 				<div className='px-5 pb-5'>
 					{item.sponsored ? (
-						<p className='text-gray-600 text-right'>Sponsored</p>
+						<p className='text-right text-gray-600'>Sponsored</p>
 					) : (
 						''
 					)}
@@ -41,7 +41,7 @@ const ItemCard = ({ item }) => {
 							)}
 						</span>
 						<a
-							href={item.url}
+							href={`/shop/${encodeURIComponent(item.url)}`}
 							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 							target='_blank'
 							rel='noopener noreferrer'>
