@@ -25,15 +25,15 @@ const ItemCard = ({ item }) => {
 						''
 					)}
 					<a href={item.url} target='_blank' rel='noopener noreferrer'>
-						<h5 className='text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-3 mx-auto break-word max-w-[300px]'>
+						<h5 className='text-xl font-semibold tracking-tight text-gray-900 line-clamp-3 mx-auto break-word max-w-[300px]'>
 							{item.name}
 						</h5>
 					</a>
 					<div className='flex items-center justify-between py-4'>
-						<span className='text-3xl font-bold text-gray-900 dark:text-white'>
+						<span className='text-3xl font-bold text-gray-900'>
 							${priceWhole}
 							{priceDecimal ? (
-								<span className='text-xl font-semibold text-gray-900 dark:text-white'>
+								<span className='text-xl font-semibold text-gray-900'>
 									.{priceDecimal.length === 1 ? priceDecimal + '0' : priceDecimal}
 								</span>
 							) : (

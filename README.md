@@ -1,38 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Amazon Search
 
-## Getting Started
+Amazon Search is a powerful tool that allows you to quickly and easily find products on Amazon. With just a few clicks, you can search Amazon's vast inventory and get detailed information on products that interest you. Whether you're looking for electronics, home goods, or anything in between, Amazon Search makes it easy to find what you're looking for. Accessible as a website, it's user-friendly and requires no programming knowledge. Try it out today and experience the convenience of Amazon without the ads. Search for yourself!
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Check out the live demo [here](https://amazon-search.techlion.dev).
+
+## Screenshots
+
+![project-screenshot](https://i.imgur.com/WC9BZDE.png)
+---
+![project-screenshot](https://i.imgur.com/U6JlIGm.png)
+---
+![project-screenshot](https://i.imgur.com/vTzoYmD.png)
+---
+![project-screenshot](https://i.imgur.com/LgDVhx8.png)
+---
+
+## Features
+
+Here are some of the project's best features:
+
+* Ad-Free Search
+* Clean UI
+* Open-Source
+* Free
+
+## Installation
+
+To get started with the project, clone the repository and install the dependencies:
+
+```sh
+git clone https://github.com/TechLionDev/amazon-search
+cd amazon-search
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the development server:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+yarn dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Contributions are always welcome and appreciated! If you would like to contribute to the project, please follow these steps:
 
-## Learn More
+1. Fork the project
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a pull request
 
-To learn more about Next.js, take a look at the following resources:
+## Built With
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Technologies used in the project:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Node.js
+* Next.js
+* Axios
+* Cheerio
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the BSD 3 Clause. See the [LICENSE](./LICENSE) file for more information.
