@@ -42,6 +42,53 @@ To run the development server:
 yarn dev
 ```
 
+## API
+
+Amazon Search provides an API endpoint that allows you to programmatically search for products on Amazon. The API endpoint URL is as follows:
+
+```
+https://amazon-search.techlion.dev/api/amazon?query=YOUR_QUERY_HERE&page=RESULTS_PAGE_NUM
+```
+
+
+To use the API, replace `YOUR_QUERY_HERE` with your desired search query and `RESULTS_PAGE_NUM` with the page number of the search results you want to retrieve.
+
+### API Response
+
+The API response is in JSON format and consists of the following structure:
+
+```json
+{
+  "data": [
+    {
+      "position": 3,
+      "name": "Electronic Remote Control Rat, Simulation Mouse Toy for Cat Dog Kid, Gray",
+      "price": 6.56,
+      "sponsored": false,
+      "img": "https://m.media-amazon.com/images/I/41NGWSthWHL._AC_UL400_.jpg",
+      "url": "https://www.amazon.com/Forum-Novelties-Electronic-Control-Simulation/dp/B074KV957X/ref=sr_1_1?keywords=toys&qid=1687195879&sr=8-1"
+    },
+    {
+      "position": 4,
+      "name": "Kids Writing Tablet, Hockvill Toys for 3 4 5 6 7 Year Old Girls Boys, 8.8 Inch Colorful Doodle Board for Toddlers, Reusable Electronic Drawing Pad, Educational & Learning Birthday Gift for Children",
+      "price": 9.99,
+      "sponsored": false,
+      "img": "https://m.media-amazon.com/images/I/81u8KzyOAJL._AC_UL400_.jpg",
+      "url": "https://www.amazon.com/Hockvill-Colorful-Toddlers-Electronic-Educational/dp/B0B9G2SJVX/ref=sr_1_2?keywords=toys&qid=1687195879&sr=8-2"
+    }
+  ],
+  "numOfPages": 7
+}
+```
+
+The response includes the following information for each product:
+
+`position`: The position of the product in the search results.
+`name`: The name or title of the product.
+`price`: The price of the product.
+`sponsored`: A boolean value indicating whether the product is sponsored or not.
+`img`: The URL of the product image.
+`url`: The URL of the product on Amazon.
 
 ## Contributing
 
