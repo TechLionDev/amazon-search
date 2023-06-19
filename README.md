@@ -83,12 +83,12 @@ The API response is in JSON format and consists of the following structure:
 
 The response includes the following information for each product:
 
-`position`: The position of the product in the search results.
-`name`: The name or title of the product.
-`price`: The price of the product.
-`sponsored`: A boolean value indicating whether the product is sponsored or not.
-`img`: The URL of the product image.
-`url`: The URL of the product on Amazon.
+- `position`: The position of the product in the search results.
+- `name`: The name or title of the product.
+- `price`: The price of the product.
+- `sponsored`: A boolean value indicating whether the product is sponsored or not.
+- `img`: The URL of the product image.
+- `url`: The URL of the product on Amazon.
 
 ## Contributing
 
